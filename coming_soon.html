@@ -25,7 +25,7 @@ encrypt videos & better code managment
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Witness App</title>
+  <title>Coming soon - Witness App</title>
     <!-- Bootstrap 5 CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -104,7 +104,7 @@ encrypt videos & better code managment
 
 <div class="mainbody coming">
     <div class="container py-5">
-      <h2 class="text-center mb-3">New Features</h2>
+      <h2 class="text-center mb-3">Features in the next Version</h2>
       <p class="text-center mb-5">A closer look at what’s on the way.</p>
 
       <div id="features"  class="row g-3">
@@ -145,27 +145,25 @@ encrypt videos & better code managment
   </script>
 
   <script>
-    // auto year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
+    
     const features = [
-      { title: "Incremental Capture & Upload", desc: "Improved step-based recording and transfer." },
-      { title: "Front & Back Simultaneously", desc: "Capture both device cameras at the same time." },
-      { title: "Auto-Exposure", desc: "Automatic brightness and contrast adjustments." },
-      { title: "Share Info with Contacts", desc: "Send essential details directly to selected contacts." },
-      { title: "Encrypted Videos & Better Code Management", desc: "Stronger security and streamlined handling." },
+      { title: "Incremental Capture & Upload", desc: "Protection from sudden termination and immediate back up" },
+      { title: "Front & Back Camera Simultaneously", desc: "Capture both device cameras at the same time." },
+      { title: "Auto-Exposure", desc: "Automatic brightness and contrast adjustments for dark environments." },
+      { title: "Share Info with Contacts", desc: "Option to send essential infos like location and a message directly to selected contacts." },
+      { title: "Encrypted Videos & Better Code Management", desc: "Actual video encryption and password managment through email or phone number." },
       { title: "Native Mbps Measurement", desc: "Automatic bandwidth detection and suggestions." },
-      { title: "More Protocols (SRT, RTMPS)", desc: "Expanded streaming and transport support." },
-      { title: "Private Server Space", desc: "Dedicated storage for user data." },
-      { title: "Peer-to-Peer Connection", desc: "Direct linking between two users." },
+      { title: "More Protocols (SRT, RTMPS)", desc: "More protocols for more use cases and security." },
+      { title: "Private Server Space", desc: "Dedicated storage for users' video, accessible only from the user." },
+      { title: "Peer-to-Peer Connection", desc: "See the stream of another user directly" },
       { title: "Readonly Metadata in Stream", desc: "Time, GPS, and device ID hash burned into the stream." },
       { title: "Peripheral Cameras (ESP32/USB)", desc: "Support for external camera sources." },
-      { title: "IP Functionality", desc: "Enhanced networking and address-based access." },
-      { title: "Saved Settings Feedback", desc: "Clear confirmation when settings are stored." },
-      { title: "More Layouts", desc: "Additional interface and viewing options." },
+      { title: "IP camera Functionality", desc: "Use as a security camera, remote access and storage management." },
+      { title: "Saving Settings Feedback", desc: "Feedback when a setting is changed, that it is saved correctly." },
+      { title: "More Layouts", desc: "Additional interface options." },
       { title: "Face Detection & AI", desc: "Smart recognition and assisted automation." },
-      { title: "Key Combinations for Start/Stop", desc: "Keyboard shortcuts for fast control." },
-      { title: "Peripheral Button Start/Stop", desc: "Trigger recording via external hardware buttons." }
+      { title: "Start from key Combinations with closed screen", desc: "Keyboard shortcuts for starting with the screen locked." },
+      { title: "Peripheral Button Start/Stop", desc: "Trigger recording via external hardware buttons (bluetooth)." }
     ];
 
     const container = document.getElementById("features");
