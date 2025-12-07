@@ -23,9 +23,9 @@
       scroll-behavior: smooth;
     }
     .hero {
-      min-height: 70vh;
+      /*min-height: 100vh;*/
       padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding-bottom: 2rem;
     }
     .feature-icon {
       font-size: 2rem;
@@ -40,7 +40,83 @@
     object-fit: contain;
     }
     .text-purple { color: #a855f7; } 
-    
+
+
+    /* Device art gallery styles */
+    /* Hide scrollbars but keep scroll functionality */
+.device-strip {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;          /* Firefox */
+}
+.device-strip::-webkit-scrollbar {
+  display: none;                 /* Chrome, Edge */
+}
+
+.device-wrapper {
+  position: relative;
+  padding: 0 60px; /* space for arrows */
+}
+
+/* Individual items */
+.device-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+/* Prevent distortion */
+.device-art-img {
+  display: block;
+  margin: 0 auto;
+  max-height: 600px;   /* desktop cap */
+  width: auto;
+  height: auto;
+  max-width: 100%;     /* never overflow width on mobile */
+}
+
+
+
+/* Arrows outside carousel */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.nav-arrow-left {
+  left: -20px;    /* position outside */
+}
+
+.nav-arrow-right {
+  right: -20px;   /* position outside */
+}
+
+.nav-arrow:hover {
+  background: #f0f0f0;
+}
+
+
+    @media (max-width: 768px) {
+  .device-wrapper {
+    padding: 0 16px;       /* smaller side padding for phones */
+  }
+
+  .device-art-img {
+    max-height: 70vh;      /* fit inside viewport height */
+  }
+}
 
   </style>
 </head>
@@ -138,9 +214,62 @@
 </section>
 
 
+<!-- DEVICE ART GALLERY -->
+ <section id="device-art" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h3">App Preview</h2>
+      <!-- <p class="text-muted">See the app in different device frames.</p> -->
+    </div>
+
+    <div class="device-wrapper position-relative">
+
+      <!-- Left arrow (outside) -->
+      <button
+        type="button"
+        class="nav-arrow nav-arrow-left d-none d-md-flex"
+        onclick="scrollDeviceStrip(-1)"
+        aria-label="Previous">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <!-- Right arrow (outside) -->
+      <button
+        type="button"
+        class="nav-arrow nav-arrow-right d-none d-md-flex"
+        onclick="scrollDeviceStrip(1)"
+        aria-label="Next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <!-- Scrollable strip -->
+      <div id="deviceStrip" class="device-strip d-flex gap-3">
+        <div class="device-item">
+          <img src="res/DeviceArt/0.png" class="device-art-img rounded" alt="">
+        </div>
+        <div class="device-item">
+          <img src="res/DeviceArt/1.png" class="device-art-img rounded" alt="">
+        </div>
+        <div class="device-item">
+          <img src="res/DeviceArt/2.png" class="device-art-img rounded" alt="">
+        </div>
+        <div class="device-item">
+          <img src="res/DeviceArt/3.png" class="device-art-img rounded" alt="">
+        </div>
+        <div class="device-item">
+          <img src="res/DeviceArt/4.png" class="device-art-img rounded" alt="">
+        </div>
+        <div class="device-item">
+          <img src="res/DeviceArt/5.png" class="device-art-img rounded" alt="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT + FEATURES -->
-<section id="features" class="py-5 bg-light">
+<section id="features" class="py-5">
   <div class="container">
     <div class="row g-5">
       <div class="col-md-6">
@@ -197,11 +326,13 @@
   </div>
 </section>
 
+
+
 <!-- USE CASES -->
-<section id="use-cases" class="py-5">
+<section id="use-cases" class="py-5 bg-light">
   <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="h3">Use it for </h2>
+    <div class="text-start mb-4">
+      <h2 class="h3 ms-4">Use it for </h2>
       <!-- <p class="text-muted mb-0">Three quick scenarios that show where your app shines.</p> -->
     </div>
     <div class="row g-4">
@@ -238,36 +369,66 @@
       </div>
     </div>
 
-    <div class="text-center mb-4 mt-4">
-      <h3 class="h3">..or anything else you think of! </h3>
+    <div class="text-end mb-4 mt-4">
+      <h3 class="h3 me-4">..or anything else you think of! </h3>
       <!-- <p class="text-muted mb-0">Three quick scenarios that show where your app shines.</p> -->
     </div>
   </div>
 </section>
 
 <!-- HOW TO USE / TUTORIALS -->
-<section id="how-to" class="py-5 bg-light">
+<!-- HOW TO USE / TUTORIALS -->
+<section id="how-to" class="py-5">
   <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <h2 class="h3 mb-3">How to use</h2>
-        <p>
-            The app’s interface is simple and intuitive—just open it and start exploring.
-            If you need help getting started, you can follow the guides and videos available here.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <h2 class="h5 mb-3">Tutorials and resources</h2>
-        <ul class="mb-0">
-            <li><a href="#" target="_blank">Short introduction</a></li>
-            <li><a href="#" target="_blank">How to get an RTMP streaming endpoint, twitch tutorial</a></li>
-            <li><a href="#" target="_blank">Use cases examples</a></li>
-            <li><a href="#" target="_blank">Detailed overview</a></li>
-        </ul>
+
+    <!-- Centered title -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="h3 mb-0">How to use</h2>
       </div>
     </div>
+
+    <!-- First row: 2-column layout (no forced height) -->
+    <div class="row g-4">
+      
+      <!-- LEFT COLUMN -->
+      <div class="col-md-6">
+        <img src="res/explain1.png"
+             alt="How to use screenshot"
+             class="img-fluid rounded w-100">
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-md-6">
+        <p>
+          The app’s interface is simple and intuitive—just open it and start exploring.
+          If you need help getting started, you can follow the guides and videos available here.
+        </p>
+
+        <img src="res/instructions.png"
+             alt="Instructions screenshot"
+             class="img-fluid rounded w-100">
+
+        <div class="mt-4">
+        <h3 class="h5 mb-3 text-center text-md-start">Tutorials and resources</h3>
+        <ul class="mb-0">
+          <li><a href="#" target="_blank">Short introduction</a></li>
+          <li><a href="#" target="_blank">How to get an RTMP streaming endpoint, twitch tutorial</a></li>
+          <li><a href="#" target="_blank">Use cases examples</a></li>
+          <li><a href="#" target="_blank">Detailed overview</a></li>
+        </ul>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
+
+
+
+
 
 <!-- FOOTER -->
 <footer class="py-4 border-top">
@@ -295,6 +456,19 @@
 <script>
   // auto year
   document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+  function scrollDeviceStrip(direction) {
+    const strip = document.getElementById('deviceStrip');
+    const item = strip.querySelector('.device-item');
+    if (!item) return;
+    const scrollAmount = item.offsetWidth * 2; // scroll by ~2 items
+    strip.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
 </script>
 
 </body>
