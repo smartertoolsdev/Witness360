@@ -107,6 +107,10 @@
   background: #f0f0f0;
 }
 
+/* Default: hide mobile, show desktop */
+.logo-mobile { display: none; }
+.logo-desktop { display: inline; }
+
 
     @media (max-width: 768px) {
   .device-wrapper {
@@ -122,6 +126,9 @@
   scroll-snap-align: center;
   scroll-snap-stop: always;  /* <- add this */
 }
+
+    .logo-mobile { display: inline; }
+    .logo-desktop { display: none; }
 
 }
 
@@ -176,10 +183,19 @@
         <!-- Text -->
         <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2 order-1">
 
-            <h1 class="display-5 fw-bold mb-3">
-                Witness 360
-                <img src="res/logo3.png" alt="Witness360 Logo"  class="me-2 align-text-bottom">
-              </h1>
+        <h1 class="display-5 fw-bold mb-3 d-inline-flex align-items-center gap-2">
+            <span>Witness 360</span>
+
+            <!-- Desktop logo -->
+            <img src="res/logo/logo3.png"
+                alt="Witness360 Logo"
+                class="logo-desktop">
+
+            <!-- Mobile logo -->
+            <img src="res/logo/logo_small.png"
+                alt="Witness360 Logo"
+                class="logo-mobile">
+        </h1>
 
             <p class="lead mb-1">
                 <i>Safety. Journalism. Adventure.</i>
